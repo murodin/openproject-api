@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BudgetDto {
+public class LaborBudgetDto {
     private Integer id;
-    private LaborBudgetDto laborBudgetDto;
-    private MaterialBudgetDto materialBudgetDto;
+    private Integer user_id;
+    private Double hours;
+    private Integer budget;
 }

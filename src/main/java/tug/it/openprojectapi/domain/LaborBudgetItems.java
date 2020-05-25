@@ -30,5 +30,8 @@ public class LaborBudgetItems {
     private Double hours;
 
     @Column(name = "user_id", unique = true, nullable = false)
-    private String user_id;
+    private Integer user_id;
+
+    @Column(name = "budget", unique = true, nullable = false)
+    private Integer budget;
 }

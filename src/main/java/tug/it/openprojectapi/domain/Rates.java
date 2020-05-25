@@ -39,7 +39,7 @@ public class Rates {
     private String type;
 
     @Column(name = "rate", unique = true, nullable = false)
-    private Double units;
+    private Double rate;
 
     @Column(name = "valid_from", unique = true, nullable = false)
     private Date valid_from;

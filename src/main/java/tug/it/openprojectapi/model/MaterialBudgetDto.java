@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BudgetDto {
+public class MaterialBudgetDto {
     private Integer id;
-    private LaborBudgetDto laborBudgetDto;
-    private MaterialBudgetDto materialBudgetDto;
+    private Double units;
+    private Integer budget;
 }
