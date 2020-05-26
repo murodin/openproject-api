@@ -11,7 +11,7 @@ import tug.it.openprojectapi.service.ProjectService;
 import java.util.Optional;
 
 @Slf4j
-@RequestMapping("v1/projects")
+@RequestMapping("api/v1/projects")
 @RestController
 @RequiredArgsConstructor
 public class ProjectController {
