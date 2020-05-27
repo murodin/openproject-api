@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MaterialBudgetDto {
     private Integer id;
+    private Integer cost_type_id;
     private Double units;
-    private Integer budget;
+    private Double budget;
 }

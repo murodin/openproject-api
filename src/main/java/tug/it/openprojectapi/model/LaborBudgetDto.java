@@ -13,5 +13,5 @@ public class LaborBudgetDto {
     private Integer id;
     private Integer user_id;
     private Double hours;
-    private Integer budget;
+    private Double budget;
 }
