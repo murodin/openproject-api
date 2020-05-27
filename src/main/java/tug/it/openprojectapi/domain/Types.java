@@ -30,11 +30,11 @@ public class Types {
     private String name;;
 
     @Column(name = "is_in_roadmap", unique = true, nullable = false)
-    private boolean is_in_roadmap;
+    private boolean isInRoadmap;
 
     @Column(name = "created_at", unique = true, nullable = false)
-    private Date created_at;
+    private Date createdAt;
 
     @Column(name = "updated_at", unique = true, nullable = false)
-    private Date updated_at;
+    private Date updatedAt;
 }

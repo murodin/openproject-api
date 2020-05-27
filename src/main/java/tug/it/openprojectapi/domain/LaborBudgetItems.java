@@ -24,14 +24,14 @@ public class LaborBudgetItems {
     private Integer id;
 
     @Column(name = "cost_object_id", unique = true, nullable = false)
-    private Integer cost_object_id;
+    private Integer costObjectId;
 
     @Column(name = "hours", unique = true, nullable = false)
     private Double hours;
 
     @Column(name = "user_id", unique = true, nullable = false)
-    private Integer user_id;
+    private Integer userId;
 
     @Column(name = "budget", unique = true, nullable = false)
-    private Integer budget;
+    private Double budget;
 }

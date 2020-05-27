@@ -24,11 +24,11 @@ public class MaterialBudgetItems {
     private Integer id;
 
     @Column(name = "cost_object_id", unique = true, nullable = false)
-    private Integer cost_object_id;
+    private Integer costObjectId;
 
     @Column(name = "units", unique = true, nullable = false)
     private Double units;
 
     @Column(name = "cost_type_id", unique = true, nullable = false)
-    private Integer cost_type_id;
+    private Integer costTypeId;
 }

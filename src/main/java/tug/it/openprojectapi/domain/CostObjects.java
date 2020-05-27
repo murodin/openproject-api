@@ -25,10 +25,10 @@ public class CostObjects {
     private Integer id;
 
     @Column(name = "project_id", unique = true, nullable = false)
-    private Integer project_id;
+    private Integer projectId;
 
     @Column(name = "author_id", unique = true, nullable = false)
-    private Integer user_id;
+    private Integer userId;
 
     @Column(name = "subject", unique = true, nullable = false)
     private String subject;
@@ -37,11 +37,11 @@ public class CostObjects {
     private String description;
 
     @Column(name = "fixed_date", unique = true, nullable = false)
-    private Date fixed_date;
+    private Date fixedDate;
 
     @Column(name = "created_on", unique = true, nullable = false)
-    private Date created_on;
+    private Date createdOn;
 
     @Column(name = "updated_on", unique = true, nullable = false)
-    private Date updated_on;
+    private Date updatedOn;
 }

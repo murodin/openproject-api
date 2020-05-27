@@ -25,19 +25,19 @@ public class CostEntries {
     private Integer id;
 
     @Column(name = "project_id", unique = true, nullable = false)
-    private Integer project_id;
+    private Integer projectId;
 
     @Column(name = "user_id", unique = true, nullable = false)
-    private Integer user_id;
+    private Integer userId;
 
     @Column(name = "work_package_id", unique = true, nullable = false)
-    private Integer work_package_id;
+    private Integer workPackageId;
 
     @Column(name = "cost_type_id", unique = true, nullable = false)
-    private Integer cost_type_id;
+    private Integer costTypeId;
 
     @Column(name = "rate_id", unique = true, nullable = false)
-    private Integer rate_id;
+    private Integer rateId;
 
     @Column(name = "units", unique = true, nullable = false)
     private Double units;
@@ -46,11 +46,11 @@ public class CostEntries {
     private Integer costs;
 
     @Column(name = "spent_on", unique = true, nullable = false)
-    private Date spent_on;
+    private Date spentOn;
 
     @Column(name = "created_on", unique = true, nullable = false)
-    private Date created_on;
+    private Date createdOn;
 
     @Column(name = "updated_on", unique = true, nullable = false)
-    private Date updated_on;
+    private Date updatedOn;
 }

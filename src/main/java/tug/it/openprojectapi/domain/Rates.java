@@ -26,13 +26,13 @@ public class Rates {
     private Integer id;
 
     @Column(name = "cost_type_id", unique = true, nullable = false)
-    private Integer cost_type_id;
+    private Integer costTypeId;
 
     @Column(name = "project_id", unique = true, nullable = false)
-    private Integer project_id;
+    private Integer projectId;
 
     @Column(name = "user_id", unique = true, nullable = false)
-    private Integer user_id;
+    private Integer userId;
 
     // Type: CostRate/HourlyRate/...
     @Column(name = "type", unique = true, nullable = false)
@@ -42,5 +42,5 @@ public class Rates {
     private Double rate;
 
     @Column(name = "valid_from", unique = true, nullable = false)
-    private Date valid_from;
+    private Date validFrom;
 }

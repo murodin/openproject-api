@@ -28,7 +28,7 @@ public class Projects {
     private Integer id;
 
     @Column(name = "parent_id", unique = true, nullable = false)
-    private Integer parent_id;
+    private Integer parentId;
 
     @Column(name = "name", unique = true, nullable = false)
     private String name;
@@ -43,8 +43,8 @@ public class Projects {
     private boolean active;
 
     @Column(name = "created_at", unique = true, nullable = false)
-    private Date created_at;
+    private Date createdAt;
 
     @Column(name = "updated_at", unique = true, nullable = false)
-    private Date updated_at;
+    private Date updatedAt;
 }

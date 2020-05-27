@@ -30,5 +30,5 @@ public class CostTypes {
     private String unit;
 
     @Column(name = "unit_plural", unique = true, nullable = false)
-    private String unit_plural;
+    private String unitPlural;
 }
