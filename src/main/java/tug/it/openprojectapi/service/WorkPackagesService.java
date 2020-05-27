@@ -53,6 +53,11 @@ public class WorkPackagesService {
                                 predicate.test(baseEntry.getRateId()))
                         .collect(summingInt(BaseEntries::getCosts));
 
+    /**
+     * Get All WorkPackages
+     * @param projectId - Project Id
+     * @return List of WorkPackagesDto related with projectId
+     */
     public List<WorkPackagesDto> getAllByProjectId(Integer projectId) {
         List<WorkPackages> workPackagesList = Optional
                 .ofNullable( workPackagesRepository.findAllByProjectId(projectId))
