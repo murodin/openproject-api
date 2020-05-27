@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // allow anonymous resource requests
                 .antMatchers(
-                        "/v1/authenticate/**",
                         "/v2/api-docs",           // swagger
                         "/webjars/**",            // swagger-ui webjars
                         "/swagger*/**",  // swagger-ui resources
