@@ -29,4 +29,13 @@ public class ProjectService {
                 .collect(toList());
     }
 
+    public List<ProjectsDto> getProjectsByActive(boolean active) {
+        List<Projects> projectsList = Optional.ofNullable(projectRepository.findAllByActive(active))
+                .orElseThrow(() -> new ProjectNotFoundException("No Projects Found"));
+
+        return projectsList.stream()
+                .map(projectMapper::projectsToDto)
+                .collect(toList());
+    }
+
 }

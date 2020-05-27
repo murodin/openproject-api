@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -43,8 +43,8 @@ public class Projects {
     private boolean active;
 
     @Column(name = "created_at", unique = true, nullable = false)
-    private Date createdAt;
+    private Timestamp createdAt;
 
     @Column(name = "updated_at", unique = true, nullable = false)
-    private Date updatedAt;
+    private Timestamp updatedAt;
 }
