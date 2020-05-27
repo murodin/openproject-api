@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,9 +20,11 @@ public class ProjectsDto {
     private String name;
     private String description;
     private String identifier;
-    private BudgetDto budget;
-    private boolean active;
 
+    private BudgetDto budget;
+    private List<WorkPackagesDto> work_packages;
+
+    private boolean active;
     private Date created_at;
     private Date updated_at;
 }
