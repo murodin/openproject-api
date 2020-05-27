@@ -38,10 +38,10 @@ public class ProjectsDto {
 
     @ApiModelProperty(notes = "active", example = "true", position = 7)
     private boolean active;
-    @ApiModelProperty(notes = "created_at", example = "1453-05-14T15:04:00+0000", position = 8)
+    @ApiModelProperty(notes = "created_at", example = "2020-01-01T14:53:00+0000", position = 8)
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
     private OffsetDateTime created_at;
-    @ApiModelProperty(notes = "updated_at", example = "1453-05-14T15:04:00+0000", position = 9)
+    @ApiModelProperty(notes = "updated_at", example = "2020-01-01T14:53:00+0000", position = 9)
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
     private OffsetDateTime updated_at;
 }
