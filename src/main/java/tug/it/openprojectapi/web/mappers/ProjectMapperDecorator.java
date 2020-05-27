@@ -5,11 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import tug.it.openprojectapi.domain.Projects;
 import tug.it.openprojectapi.model.ProjectsDto;
+import tug.it.openprojectapi.service.BudgetService;
 
 @Slf4j
 public abstract class ProjectMapperDecorator implements ProjectMapper {
 
     private ProjectMapper projectMapper;
+    private BudgetService budgetService;
+
+    @Autowired
+    private void setServices(BudgetService budgetService) {
+        this.budgetService = budgetService;
+    }
 
     @Autowired
     @Qualifier("delegate")
@@ -20,8 +27,8 @@ public abstract class ProjectMapperDecorator implements ProjectMapper {
     @Override
     public ProjectsDto projectsToDto(Projects projects) {
         ProjectsDto projectsDto = projectMapper.projectsToDto(projects);
-        // todo implemented with Budget Class
-        projectsDto.setBudget(null);
+        projectsDto.setBudget(budgetService.getByProjectId(projects.getId()));
+
         return projectsDto;
     }
 }
