@@ -2,6 +2,7 @@ package tug.it.openprojectapi.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import tug.it.openprojectapi.domain.BaseEntries;
 import tug.it.openprojectapi.domain.WorkPackages;
@@ -79,8 +80,8 @@ public class WorkPackagesService {
                 .assigned_to_id(workPackages.getAssignedToId())
                 .author_id(workPackages.getAuthorId())
                 .cost_object_id(workPackages.getCostObjectId())
-                .material_costs(getCost("material", workPackages.getId()))
-                .labor_costs(getCost("labor", workPackages.getId()))
+                .material_costs(getCost("Material", workPackages.getId()))
+                .labor_costs(getCost("Labor", workPackages.getId()))
                 .done_ratio(workPackages.getDoneRatio())
                 .estimated_hours(workPackages.getEstimatedHours())
                 .remaining_hours(workPackages.getRemainingHours())
@@ -90,7 +91,7 @@ public class WorkPackagesService {
     }
 
     private Integer getCost(String costType, Integer workPackageId) {
-        Optional<List<?>> optionalCostEntries = costType.equals("material") ?
+        Optional<List<?>> optionalCostEntries = costType.equalsIgnoreCase("Material") ?
                 Optional.ofNullable(costEntriesRepository.findAllByWorkPackageId(workPackageId)) :
                 Optional.ofNullable(timeEntriesRepository.findAllByWorkPackageId(workPackageId));
 
