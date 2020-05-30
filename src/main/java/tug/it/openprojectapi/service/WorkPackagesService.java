@@ -13,6 +13,7 @@ import tug.it.openprojectapi.respository.RatesRepository;
 import tug.it.openprojectapi.respository.TimeEntriesRepository;
 import tug.it.openprojectapi.respository.WorkPackagesRepository;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -65,6 +66,7 @@ public class WorkPackagesService {
 
         return workPackagesList.stream()
                 .map(this::buildDto)
+                .sorted(Comparator.comparing(WorkPackagesDto::getStart_date))
                 .collect(toList());
     }
 
