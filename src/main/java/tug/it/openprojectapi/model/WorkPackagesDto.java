@@ -21,10 +21,10 @@ public class WorkPackagesDto {
     private Integer type_id;
     @ApiModelProperty(notes = "status_id", example = "2", position = 2)
     private Integer status_id;
-    @ApiModelProperty(notes = "assigned_to_id", example = "3", position = 3)
-    private Integer assigned_to_id;
-    @ApiModelProperty(notes = "author_id", example = "2", position = 4)
-    private Integer author_id;
+    @ApiModelProperty(notes = "assigned_user", example = "Şinasi Aşağıbakmaz", position = 3)
+    private String assigned_user;
+    @ApiModelProperty(notes = "author_user", example = "Basri Yukarıçıkmaz", position = 4)
+    private String author_user;
     @ApiModelProperty(notes = "cost_object_id", example = "2", position = 5)
     private Integer cost_object_id;
     @ApiModelProperty(notes = "labor_costs", example = "1100", position = 6)

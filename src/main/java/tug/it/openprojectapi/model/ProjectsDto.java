@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -35,6 +34,8 @@ public class ProjectsDto {
     private BudgetDto budget;
     @ApiModelProperty(notes = "work_packages", position = 6)
     private List<WorkPackagesDto> work_packages;
+    @ApiModelProperty(notes = "members", position = 6)
+    private List<MemberDto> members;
 
     @ApiModelProperty(notes = "active", example = "true", position = 7)
     private boolean active;
