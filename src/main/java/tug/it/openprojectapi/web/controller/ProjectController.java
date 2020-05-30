@@ -50,4 +50,23 @@ public class ProjectController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @ApiOperation(value = "Proje Aktif/Pasif Getir", notes = "/api/v1/projects/1453/active/true")
+    @ApiResponses({@ApiResponse(code = 200, message = "Success|OK", response = ProjectsDto[].class),
+            @ApiResponse(code = 401, message = "Not Authorized"),
+            @ApiResponse(code = 403, message = "Forbidden"),
+            @ApiResponse(code = 404, message = "Not Found")})
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "projectId", paramType = "path", dataType = "int",
+                    example = "1453", required = true),
+            @ApiImplicitParam(name = "status", paramType = "path", dataType = "boolean",
+                    example = "true", required = true)
+    })
+    @GetMapping("/{projectId}/active/{status}")
+    public ResponseEntity getProjectsByIdAndActive(@PathVariable Integer projectId,
+                                              @PathVariable boolean status) {
+        return Optional.ofNullable(projectService.getProjectsByIdAndActive(projectId, status))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
