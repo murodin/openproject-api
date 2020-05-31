@@ -88,15 +88,15 @@ public class WorkPackagesService {
     }
 
     private Integer getCost(String costType, Integer workPackageId) {
-        Optional<List<?>> optionalCostEntries = costType.equalsIgnoreCase("Material") ?
+        Optional<List> optionalCostEntries = costType.equalsIgnoreCase("Material") ?
                 Optional.ofNullable(costEntriesRepository.findAllByWorkPackageId(workPackageId)) :
                 Optional.ofNullable(timeEntriesRepository.findAllByWorkPackageId(workPackageId));
 
         Predicate<Integer> predicate = costType.equalsIgnoreCase("Material") ? isRateCostRate: isRateHourlyRate;
 
         return optionalCostEntries.isPresent() ?
-                    getCostFromEntries.apply((List<BaseEntries>) optionalCostEntries.get(), predicate) +
-                    getOverriddenCostFromEntries.apply((List<BaseEntries>) optionalCostEntries.get())
+                    getCostFromEntries.apply(optionalCostEntries.get(), predicate) +
+                    getOverriddenCostFromEntries.apply(optionalCostEntries.get())
                     : 0;
     }
 }
