@@ -2,6 +2,7 @@ package tug.it.openprojectapi.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import tug.it.openprojectapi.domain.Users;
 import tug.it.openprojectapi.respository.UsersRepository;
 
@@ -18,6 +19,7 @@ public class UsersService {
                 Optional.ofNullable(userId).orElse(0)
         ).orElseGet(Users::getDefaultUser);
 
-        return user.getFirstname().toUpperCase() +" "+user.getLastname().toUpperCase();
+        return StringUtils.capitalize(user.getFirstname().toLowerCase()) +" "
+                +StringUtils.capitalize(user.getLastname().toLowerCase());
     }
 }

@@ -2,13 +2,11 @@ package tug.it.openprojectapi.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tug.it.openprojectapi.domain.Projects;
 import tug.it.openprojectapi.exception.ProjectNotFoundException;
 import tug.it.openprojectapi.model.ProjectsDto;
 import tug.it.openprojectapi.respository.ProjectRepository;
-import tug.it.openprojectapi.respository.WorkPackagesRepository;
 import tug.it.openprojectapi.web.mappers.ProjectMapper;
 
 import java.util.List;
@@ -22,10 +20,8 @@ import static java.util.stream.Collectors.toList;
 public class ProjectService {
 
     private final ProjectRepository projectRepository;
+    private final WorkPackagesService workPackagesService;
     private final ProjectMapper projectMapper;
-
-    @Autowired
-    private WorkPackagesService workPackagesService;
 
     public List<ProjectsDto> getProjects() {
         List<Projects> projectsList = Optional.ofNullable(projectRepository.findAll())

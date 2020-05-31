@@ -25,4 +25,8 @@ public class Roles {
 
     @Column(name = "name", unique = true, nullable = false)
     private String name;
+
+    public static Roles getDefaultRoles() {
+        return new Roles(0, "tanımsız");
+    }
 }

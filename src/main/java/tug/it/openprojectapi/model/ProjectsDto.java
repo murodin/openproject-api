@@ -35,7 +35,7 @@ public class ProjectsDto {
     @ApiModelProperty(notes = "work_packages", position = 6)
     private List<WorkPackagesDto> work_packages;
     @ApiModelProperty(notes = "members", position = 7)
-    private List<MemberDto> members;
+    private List<MembersDto> members;
 
     @ApiModelProperty(notes = "active", example = "true", position = 8)
     private boolean active;

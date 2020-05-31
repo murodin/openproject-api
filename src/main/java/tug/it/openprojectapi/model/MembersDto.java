@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MemberDto {
+public class MembersDto {
     @ApiModelProperty(notes = "user", example = "Şinasi Aşağıbakmaz", position = 0)
     private String user;
 

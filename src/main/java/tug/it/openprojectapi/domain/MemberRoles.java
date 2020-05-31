@@ -28,4 +28,8 @@ public class MemberRoles {
 
     @Column(name = "role_id", unique = true, nullable = false)
     private Integer roleId;
+
+    public static MemberRoles getDefaultMemberRoles() {
+        return new MemberRoles(0, 0, 0);
+    }
 }
