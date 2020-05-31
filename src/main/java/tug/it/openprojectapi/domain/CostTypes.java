@@ -31,4 +31,9 @@ public class CostTypes {
 
     @Column(name = "unit_plural", unique = true, nullable = false)
     private String unitPlural;
+
+    public static CostTypes getDefaultCostTypes() {
+        return new CostTypes(0,"tanımsız", "item", "items");
+    }
+
 }

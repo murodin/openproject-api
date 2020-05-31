@@ -31,4 +31,8 @@ public class Users {
 
     @Column(name = "admin", unique = true, nullable = false)
     private boolean admin;
+
+    public static Users getDefaultUser() {
+        return new Users(0,"tanımsız", "kullanıcı", false);
+    }
 }
