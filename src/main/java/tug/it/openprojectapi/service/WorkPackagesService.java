@@ -2,17 +2,13 @@ package tug.it.openprojectapi.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import tug.it.openprojectapi.domain.BaseEntries;
 import tug.it.openprojectapi.domain.WorkPackages;
 import tug.it.openprojectapi.exception.RatesNotFoundException;
 import tug.it.openprojectapi.exception.WorkPackagesNotFoundException;
 import tug.it.openprojectapi.model.WorkPackagesDto;
-import tug.it.openprojectapi.respository.CostEntriesRepository;
-import tug.it.openprojectapi.respository.RatesRepository;
-import tug.it.openprojectapi.respository.TimeEntriesRepository;
-import tug.it.openprojectapi.respository.WorkPackagesRepository;
+import tug.it.openprojectapi.respository.*;
 
 import java.util.Comparator;
 import java.util.List;
@@ -31,6 +27,7 @@ public class WorkPackagesService {
     private final WorkPackagesRepository workPackagesRepository;
     private final CostEntriesRepository costEntriesRepository;
     private final TimeEntriesRepository timeEntriesRepository;
+    private final UsersService usersService;
 
     @Autowired
     private RatesRepository ratesRepository;
@@ -77,8 +74,8 @@ public class WorkPackagesService {
                 .status_id(workPackages.getStatusId())
                 .type_id(workPackages.getTypeId())
                 .subject(workPackages.getSubject())
-                .assigned_to_id(workPackages.getAssignedToId())
-                .author_id(workPackages.getAuthorId())
+                .assigned_user(usersService.getUserFirstLastName(workPackages.getAssignedToId()))
+                .author_user(usersService.getUserFirstLastName(workPackages.getAuthorId()))
                 .cost_object_id(workPackages.getCostObjectId())
                 .material_costs(getCost("Material", workPackages.getId()))
                 .labor_costs(getCost("Labor", workPackages.getId()))

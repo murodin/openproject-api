@@ -3,6 +3,7 @@ package tug.it.openprojectapi.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tug.it.openprojectapi.domain.LaborBudgetItems;
+import tug.it.openprojectapi.domain.Users;
 import tug.it.openprojectapi.exception.LaborBudgetItemsNotFoundException;
 import tug.it.openprojectapi.model.LaborBudgetDto;
 import tug.it.openprojectapi.respository.LaborBudgetItemsRepository;
@@ -17,6 +18,7 @@ import static java.util.stream.Collectors.toList;
 public class LaborBudgetService {
 
     private final LaborBudgetItemsRepository laborBudgetItemsRepository;
+    private final UsersService usersService;
 
     public List<LaborBudgetDto> getAllByCostObjectId(Integer costObjectId) {
 
@@ -34,7 +36,7 @@ public class LaborBudgetService {
         return LaborBudgetDto.builder()
                 .id(laborBudgetItems.getId())
                 .hours(laborBudgetItems.getHours())
-                .user_id(laborBudgetItems.getUserId())
+                .user(usersService.getUserFirstLastName(laborBudgetItems.getUserId()))
                 .budget(laborBudgetItems.getBudget())
                 .build();
     }

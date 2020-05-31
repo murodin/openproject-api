@@ -9,6 +9,7 @@ import tug.it.openprojectapi.domain.Rates;
 import tug.it.openprojectapi.exception.MaterialBudgetItemsNotFoundException;
 import tug.it.openprojectapi.exception.RatesNotFoundException;
 import tug.it.openprojectapi.model.MaterialBudgetDto;
+import tug.it.openprojectapi.respository.CostTypesRepository;
 import tug.it.openprojectapi.respository.MaterialBudgetItemsRepository;
 import tug.it.openprojectapi.respository.RatesRepository;
 
@@ -24,6 +25,7 @@ import static java.util.stream.Collectors.toList;
 public class MaterialBudgetService {
 
     private final MaterialBudgetItemsRepository materialBudgetItemsRepository;
+    private final CostTypesService costTypesService;
 
     @Autowired
     private  RatesRepository ratesRepository;
@@ -45,7 +47,7 @@ public class MaterialBudgetService {
     private MaterialBudgetDto buildDto(MaterialBudgetItems materialBudgetItems){
         return MaterialBudgetDto.builder()
                 .id(materialBudgetItems.getId())
-                .cost_type_id(materialBudgetItems.getCostTypeId())
+                .cost_type(costTypesService.getCostTypesName(materialBudgetItems.getCostTypeId()))
                 .units(materialBudgetItems.getUnits())
                 .budget(getRateByCostTypeId.apply(materialBudgetItems.getCostTypeId()).getRate() * materialBudgetItems.getUnits())
                 .build();
