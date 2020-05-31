@@ -92,7 +92,7 @@ public class WorkPackagesService {
                 Optional.ofNullable(costEntriesRepository.findAllByWorkPackageId(workPackageId)) :
                 Optional.ofNullable(timeEntriesRepository.findAllByWorkPackageId(workPackageId));
 
-        Predicate<Integer> predicate = costType.equals("material") ? isRateCostRate: isRateHourlyRate;
+        Predicate<Integer> predicate = costType.equalsIgnoreCase("Material") ? isRateCostRate: isRateHourlyRate;
 
         return optionalCostEntries.isPresent() ?
                     getCostFromEntries.apply((List<BaseEntries>) optionalCostEntries.get(), predicate) +
