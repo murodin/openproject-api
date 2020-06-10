@@ -31,7 +31,7 @@ public class MaterialBudgetService {
     private  RatesRepository ratesRepository;
 
     Function<Integer, Rates> getRateByCostTypeId = costTypeId -> Optional.ofNullable(ratesRepository.findAllByCostTypeId(costTypeId))
-            .orElseThrow(() -> new RatesNotFoundException(String.format("Rates Not Found for Cost Type Id: %s", costTypeId)));
+            .orElseGet(() -> Rates.getDefaultRates() );
 
     public List<MaterialBudgetDto> getAllByCostObjectId(Integer costObjectId) {
 

@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -43,4 +44,8 @@ public class Rates {
 
     @Column(name = "valid_from", unique = true, nullable = false)
     private Date validFrom;
+
+    public static Rates getDefaultRates() {
+        return new Rates(0, 0, 0, 0, "undefined", 0.0, Date.valueOf(LocalDate.now()));
+    }
 }
