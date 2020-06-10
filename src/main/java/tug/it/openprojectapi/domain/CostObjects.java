@@ -46,4 +46,9 @@ public class CostObjects {
 
     @Column(name = "updated_on", unique = true, nullable = false)
     private Date updatedOn;
+
+    public static CostObjects getDefaultCostObjects() {
+        return new CostObjects(0, 0, 0, "undefined", "undefined",
+                Date.valueOf(LocalDate.now()) , Date.valueOf(LocalDate.now()) , Date.valueOf(LocalDate.now()));
+    }
 }

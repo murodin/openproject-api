@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tug.it.openprojectapi.domain.CostObjects;
+import tug.it.openprojectapi.domain.Rates;
 import tug.it.openprojectapi.exception.CostObjectsNotFoundException;
 import tug.it.openprojectapi.model.BudgetDto;
 import tug.it.openprojectapi.respository.CostObjectsRepository;
@@ -21,7 +22,7 @@ public class BudgetService {
     private CostObjectsRepository costObjectsRepository;
 
     Function<Integer, CostObjects> getCostObjectByProjectId = projectId -> costObjectsRepository.findByProjectId(projectId)
-            .orElseThrow(() -> new CostObjectsNotFoundException(String.format("Cost Object Not Found for Project Id: %s", projectId)));
+            .orElseGet(() -> CostObjects.getDefaultCostObjects());
 
     public BudgetDto getByProjectId(Integer projectId) {
         Integer costObjectId = getCostObjectByProjectId.apply(projectId).getId();
