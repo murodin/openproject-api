@@ -64,6 +64,8 @@ public class WorkPackagesService {
 
         return workPackagesList.stream()
                 .map(this::buildDto)
+                //.sorted(Comparator.comparing(WorkPackagesDto::getStart_date))
+                .filter(work -> work.getStart_date() != null)
                 .sorted(Comparator.comparing(WorkPackagesDto::getStart_date))
                 .collect(toList());
     }
