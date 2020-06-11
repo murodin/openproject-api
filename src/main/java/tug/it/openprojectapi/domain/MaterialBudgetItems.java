@@ -31,4 +31,7 @@ public class MaterialBudgetItems {
 
     @Column(name = "cost_type_id", unique = true, nullable = false)
     private Integer costTypeId;
+
+    @Column(name = "budget", unique = true, nullable = false)
+    private Double budget;
 }

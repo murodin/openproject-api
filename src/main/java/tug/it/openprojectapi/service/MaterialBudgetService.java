@@ -27,12 +27,6 @@ public class MaterialBudgetService {
     private final MaterialBudgetItemsRepository materialBudgetItemsRepository;
     private final CostTypesService costTypesService;
 
-    @Autowired
-    private  RatesRepository ratesRepository;
-
-    Function<Integer, Rates> getRateByCostTypeId = costTypeId -> Optional.ofNullable(ratesRepository.findAllByCostTypeId(costTypeId))
-            .orElseGet(() -> Rates.getDefaultRates());
-
     public List<MaterialBudgetDto> getAllByCostObjectId(Integer costObjectId) {
 
         List<MaterialBudgetItems> materialBudgetItemsList = Optional.ofNullable(
@@ -49,7 +43,7 @@ public class MaterialBudgetService {
                 .id(materialBudgetItems.getId())
                 .cost_type(costTypesService.getCostTypesName(materialBudgetItems.getCostTypeId()))
                 .units(materialBudgetItems.getUnits())
-                .budget(getRateByCostTypeId.apply(materialBudgetItems.getCostTypeId()).getRate() * materialBudgetItems.getUnits())
+                .budget(materialBudgetItems.getBudget())
                 .build();
     }
 }
