@@ -16,6 +16,6 @@ public class MembersDto {
     @ApiModelProperty(notes = "user", example = "Şinasi Aşağıbakmaz", position = 0)
     private String user;
 
-    @ApiModelProperty(notes = "role", example = "Proje Yöneticisi", position = 1)
+    @ApiModelProperty(notes = "role", example = "Project admin", position = 1)
     private String role;
 }
