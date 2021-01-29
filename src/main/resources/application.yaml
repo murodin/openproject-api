@@ -3,7 +3,7 @@ spring:
     # (!) Not for production environment (!)
     url: jdbc:postgresql://localhost:5432/openproject
     username: postgres
-    password: 903528
+    password: 1562252
     # (!)------(!)------(!)
     hikari:
       maximum-pool-size: 10
