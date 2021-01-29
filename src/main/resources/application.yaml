@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    # (!) Not for production environment (!)
+    url: jdbc:postgresql://localhost:5432/openproject
+    username: postgres
+    password: 1562252
+    # (!)------(!)------(!)
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 60000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Africa/Nairobi
+
+server:
+  port: 8097
+
+keys:
+  admin: admin
