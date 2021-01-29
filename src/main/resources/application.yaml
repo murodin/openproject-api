@@ -22,4 +22,4 @@ server:
   port: 8097
 
 keys:
-  admin: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJwYXNzIjoidHVnLmFkbWluITEyMyJ9._2r1OkhJ8339yVZhwfbG6y5supINJ4t-TjJpf0dgJUg
+  admin: admin
